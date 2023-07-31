@@ -1,38 +1,23 @@
 # Filter-Less #
 
-Filter-Less é um programa em Python que aplica filtros a imagens BMP (Bitmaps) sem a necessidade de softwares de edição de imagem. O programa suporta os seguintes filtros:
- * Grayscale: Converte a imagem para preto e branco, preservando a escala de cinza com base nos valores médios de vermelho, verde e azul.
-  
- * Sepia: Dá um efeito vintage à imagem, calculando novos valores de vermelho, verde e azul com base em uma fórmula específica.
-  
- * Reflection: Reflete a imagem horizontalmente, como se fosse colocada em frente a um espelho.
-  
- * Blur: Aplica um efeito de desfoque na imagem, calculando novos valores de cor com base na média dos valores das cores dos pixels vizinhos.
+Filter-Less é um projeto em C que implementa filtros simples para imagens no formato BMP. Os filtros disponíveis incluem:
+
+  * Grayscale: Converte a imagem para tons de cinza.
+  * Sepia: Converte a imagem para tons de sépia (reddish-brown).
+  * Reflection: Reflete a imagem horizontalmente, como se estivesse em frente a um espelho.
+  * Blur: Aplica um efeito de desfoque à imagem usando a técnica "box blur".
 
 ## Como usar ##
 
-  Certifique-se de ter o Python instalado em seu computador.
+  1. Certifique-se de ter um compilador C (por exemplo, GCC) instalado em seu sistema.
+  2. Compile o programa usando o compilador C de sua escolha. Por exemplo, para compilar o código usando GCC, use o seguinte comando:
 
-  Clone ou faça o download do repositório do projeto.
+    gcc -o filter filter.c helpers.c -lm
 
-  Abra o terminal ou prompt de comando e navegue até o diretório onde o projeto está localizado.
+  3. Execute o programa fornecendo o filtro desejado e os arquivos de entrada e saída. Por exemplo, para aplicar o filtro "grayscale" a uma imagem chamada "input.bmp" e salvar a imagem resultante como "output.bmp", use o seguinte comando:
 
-  Para aplicar um filtro, use o seguinte comando:
+    ./filter grayscale input.bmp output.bmp
 
-    python filter.py <filtro> <imagem_de_entrada.bmp> <imagem_de_saida.bmp>
+## Formato BMP suportado ##
 
-  Substitua <filtro> pelo nome do filtro desejado (grayscale, sepia, reflection ou blur), <imagem_de_entrada.bmp> pelo nome do arquivo BMP de entrada e <imagem_de_saida.bmp> pelo nome que você deseja dar à nova imagem filtrada.
-
-## Exemplo ##
-
-Para converter uma imagem chamada "paisagem.bmp" para escala de cinza e salvar o resultado como "paisagem_grayscale.bmp", execute o seguinte comando:
-
-    python filter.py grayscale paisagem.bmp paisagem_grayscale.bmp
-
-## Observações ##
-
-  O programa só suporta imagens BMP (bitmap) com 24 bits de cor (RGB).
-  Certifique-se de fornecer os nomes corretos dos arquivos BMP de entrada e saída, incluindo a extensão .bmp.
-  A imagem filtrada será salva na mesma pasta onde o programa está localizado.
-
-Aproveite para criar efeitos interessantes em suas imagens usando o Filter-Less!
+Este programa suporta imagens no formato BMP de 24 bits, o que significa que cada pixel é representado por 24 bits (8 bits para a quantidade de vermelho, 8 bits para a quantidade de verde e 8 bits para a quantidade de azul).
